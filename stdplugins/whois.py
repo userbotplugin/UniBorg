@@ -53,14 +53,14 @@ async def _(event):
         location = str(e)
     caption = """ID: <code>{}</code>
 First Name: <a href='tg://user?id={}'>{}</a>
-🤦‍♂️ Last Name: {}
-Bio: {}
+il tuo nome: {}
+la tua bio: {}
 DC ID: {}
-Number of PPs: {}
+Numero di PPs: {}
 Restricted: {}
-Verified: {}
+Verifica: {}
 Bot: {}
-Groups in Common: {}
+Groups in Commune: {}
 """.format(
         user_id,
         user_id,

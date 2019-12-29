@@ -61,6 +61,7 @@ async def _(event):
 🙄Verifica: {}
 🤖sei un bot?: {}
 😘Groups in Commune: {}
+Dev By XxGamerYT e MelTheDead 🥰
 """.format(
         user_id,
         user_id,

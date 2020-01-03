@@ -52,15 +52,14 @@ async def _(event):
         dc_id = "Need a Profile Picture to check **this**"
         location = str(e)
     caption = """ID: <code>{}</code>
-First Name: <a href='tg://user?id={}'>{}</a>
-🤦‍♂️ Last Name: {}
-Bio: {}
+✊👈First Name: <a href='tg://user?id={}'>{}</a>
+💦il tuo secondo nome: {}
+😝la tua bio: {}
 DC ID: {}
-Number of PPs: {}
-Restricted: {}
-Verified: {}
-Bot: {}
-Groups in Common: {}
+🙃il tuo numero di PPs: {}
+😒verifica: {}
+😈sei un bot?: {}
+😙Gruppi in comune: {}
 """.format(
         user_id,
         user_id,
@@ -69,7 +68,6 @@ Groups in Common: {}
         user_bio,
         dc_id,
         replied_user_profile_photos_count,
-        replied_user.user.restricted,
         replied_user.user.verified,
         replied_user.user.bot,
         common_chats

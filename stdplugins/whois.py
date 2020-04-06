@@ -51,13 +51,12 @@ async def _(event):
     except Exception as e:
         dc_id = "Need a Profile Picture to check **this**"
         location = str(e)
-    caption = """ID: <code>{}</code>
+    caption = """🆔: <code>{}</code>
 😝il tuo nome: <a href='tg://user?id={}'>{}</a>
 🤪il tuo cognome: {}
 😋la tua bio: {}
 😅DC ID: {}
 😙Numero di PPs: {}
-😙comming soon: {}
 🙄Verifica: {}
 🤖sei un bot?: {}
 😘Groups in Commune: {}
@@ -70,7 +69,6 @@ Dev By XxGamerYT e MelTheDead 🥰
         user_bio,
         dc_id,
         replied_user_profile_photos_count,
-        replied_user.user.restricted,
         replied_user.user.verified,
         replied_user.user.bot,
         common_chats

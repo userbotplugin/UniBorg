@@ -1,11 +1,11 @@
 """Get Detailed info about any message
-Syntax: .json"""
+Syntax: .verifica"""
 from telethon import events
 import io
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd(pattern="json"))
+@borg.on(admin_cmd(pattern="verifica"))
 async def _(event):
     if event.fwd_from:
         return

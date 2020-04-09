@@ -60,7 +60,8 @@ async def _(event):
 🙄Verifica: {}
 🤖sei un bot?: {}
 😘Groups in Commune: {}
-Dev By XxGamerYT e MelTheDead 🥰
+
+Dev by @UserBotPlugin
 """.format(
         user_id,
         user_id,

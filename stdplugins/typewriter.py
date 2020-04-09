@@ -5,7 +5,7 @@ import asyncio
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd(pattern="typewriter (.*)"))
+@borg.on(admin_cmd(pattern="scrivi (.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -18,7 +18,7 @@ async def _(event):
         await event.edit(shiiinabot)
     except Exception as e:
         logger.warn(str(e))
-    typing_symbol = "|"
+    typing_symbol = "⚡"
     DELAY_BETWEEN_EDITS = 0.3
     previous_text = ""
     await event.edit(typing_symbol)

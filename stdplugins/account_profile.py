@@ -1,14 +1,14 @@
 """Profile Updation Commands
-.pbio <Bio>
-.pname <Name>
-.ppic"""
+.bio <Bio>
+.nome <Name>
+.pic"""
 import os
 from telethon import events
 from telethon.tl import functions
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd(pattern="pbio (.*)"))  # pylint:disable=E0602
+@borg.on(admin_cmd(pattern="bio (.*)"))  # pylint:disable=E0602
 async def _(event):
     if event.fwd_from:
         return
@@ -17,12 +17,12 @@ async def _(event):
         await borg(functions.account.UpdateProfileRequest(  # pylint:disable=E0602
             about=bio
         ))
-        await event.edit("Succesfully changed my profile bio")
+        await event.edit("💀Bio cambiata con siccesso💀")
     except Exception as e:  # pylint:disable=C0103,W0703
         await event.edit(str(e))
 
 
-@borg.on(admin_cmd(pattern="pname ((.|\n)*)"))  # pylint:disable=E0602,W0703
+@borg.on(admin_cmd(pattern="nome ((.|\n)*)"))  # pylint:disable=E0602,W0703
 async def _(event):
     if event.fwd_from:
         return
@@ -36,12 +36,12 @@ async def _(event):
             first_name=first_name,
             last_name=last_name
         ))
-        await event.edit("My name was changed successfully")
+        await event.edit("⚡Nome cambiato con successo⚡")
     except Exception as e:  # pylint:disable=C0103,W0703
         await event.edit(str(e))
 
 
-@borg.on(admin_cmd(pattern="ppic"))  # pylint:disable=E0602
+@borg.on(admin_cmd(pattern="pic"))  # pylint:disable=E0602
 async def _(event):
     if event.fwd_from:
         return
@@ -59,7 +59,7 @@ async def _(event):
         await event.edit(str(e))
     else:
         if photo:
-            await event.edit("now, Uploading to @Telegram ...")
+            await event.edit("@UserBotPlugin ...")
             file = await borg.upload_file(photo)  # pylint:disable=E0602
             try:
                 await borg(functions.photos.UploadProfilePhotoRequest(  # pylint:disable=E0602
@@ -68,7 +68,7 @@ async def _(event):
             except Exception as e:  # pylint:disable=C0103,W0703
                 await event.edit(str(e))
             else:
-                await event.edit("My profile picture was succesfully changed")
+                await event.edit("🌀Pic cambiata con successo🌀")
     try:
         os.remove(photo)
     except Exception as e:  # pylint:disable=C0103,W0703

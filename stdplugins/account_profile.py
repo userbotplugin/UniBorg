@@ -17,7 +17,7 @@ async def _(event):
         await borg(functions.account.UpdateProfileRequest(  # pylint:disable=E0602
             about=bio
         ))
-        await event.edit("💀Bio cambiata con siccesso💀")
+        await event.edit("💀Bio cambiata con successo💀")
     except Exception as e:  # pylint:disable=C0103,W0703
         await event.edit(str(e))
 

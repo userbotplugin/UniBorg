@@ -5,7 +5,7 @@ from telethon.tl import functions, types
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd(pattern="cpin ?(.*)"))
+@borg.on(admin_cmd(pattern="pin ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -26,4 +26,4 @@ async def _(event):
         else:
             await event.delete()
     else:
-        await event.edit("Reply to a message to pin the message in this Channel.")
+        await event.edit("Seleziona il messaggio che vuoi fissare.")

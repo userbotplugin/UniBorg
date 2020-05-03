@@ -34,18 +34,18 @@ async def _(event):
     if event.fwd_from:
         return
     if not event.is_reply:
-        await event.edit("Reply to a photo to add to my personal sticker pack.")
+        await event.edit("sto trasformando in stickers...")
         return
     reply_message = await event.get_reply_message()
-    sticker_emoji = "🤪"
+    sticker_emoji = "👮"
     input_str = event.pattern_match.group(1)
     if input_str:
         sticker_emoji = input_str
 
     me = borg.me
     userid = event.from_id
-    packname = f"{userid}'s @UniBorg Pack"
-    packshortname = f"Uni_Borg_{userid}"  # format: Uni_Borg_userid
+    packname = f"{userid}'s @DIAVOLOGAMER"
+    packshortname = f"@DIAVOLOGAMER_PACK {userid}"  # format: Uni_Borg_userid
 
     is_a_s = is_it_animated_sticker(reply_message)
     file_ext_ns_ion = "@UniBorg_Sticker.png"
@@ -119,7 +119,7 @@ async def _(event):
     await event.edit(f"sticker added! Your pack can be found [here](t.me/addstickers/{packshortname})")
 
 
-@borg.on(admin_cmd(pattern="packinfo"))
+@borg.on(admin_cmd(pattern="pinfo"))
 async def _(event):
     if event.fwd_from:
         return
@@ -155,7 +155,7 @@ async def _(event):
                      f"**Emojis In Pack:** {' '.join(pack_emojis)}")
 
 
-@borg.on(admin_cmd(pattern="getsticker ?(.*)"))
+@borg.on(admin_cmd(pattern="gamer ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -174,7 +174,7 @@ async def _(event):
             return
         is_a_s = is_it_animated_sticker(reply_message)
         file_ext_ns_ion = "webp"
-        file_caption = "https://t.me/RoseSupportChat/33801"
+        file_caption = ""
         if is_a_s:
             file_ext_ns_ion = "tgs"
             file_caption = "Forward the ZIP file to @AnimatedStickersRoBot to get lottIE JSON containing the vector information."

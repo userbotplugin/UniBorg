@@ -8,7 +8,7 @@ import speedtest
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd(pattern="speedtest ?(.*)"))
+@borg.on(admin_cmd(pattern="test ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -21,7 +21,7 @@ async def _(event):
         as_document = True
     elif input_str == "text":
         as_text = True
-    await event.edit("Calculating my internet speed. Please wait!")
+    await event.edit("Sto analizzando il mio internet attendi...")
     start = datetime.now()
     s = speedtest.Speedtest()
     s.get_best_server()
@@ -43,7 +43,7 @@ async def _(event):
         response = s.results.share()
         speedtest_image = response
         if as_text:
-            await event.edit("""**SpeedTest** completed in {} seconds
+            await event.edit("""**SpeedTest** completato {} in secondi
 Download: {}
 Upload: {}
 Ping: {}
@@ -53,14 +53,14 @@ ISP Rating: {}""".format(ms, convert_from_bytes(download_speed), convert_from_by
             await borg.send_file(
                 event.chat_id,
                 speedtest_image,
-                caption="**SpeedTest** completed in {} seconds".format(ms),
+                caption="**SpeedTest** completato in {} secondi".format(ms),
                 force_document=as_document,
                 reply_to=reply_msg_id,
                 allow_cache=False
             )
             await event.delete()
     except Exception as exc:
-        await event.edit("""**SpeedTest** completed in {} seconds
+        await event.edit("""**SpeedTest** completato in {} secondi
 Download: {}
 Upload: {}
 Ping: {}

@@ -11,7 +11,7 @@ from uniborg.util import admin_cmd
 FONT_FILE_TO_USE = "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"
 
 
-@borg.on(admin_cmd(pattern="getime ?(.*)"))  # pylint:disable=E0602
+@borg.on(admin_cmd(pattern="time ?(.*)"))  # pylint:disable=E0602
 async def _(event):
     if event.fwd_from:
         return
@@ -36,7 +36,7 @@ async def _(event):
     await borg.send_file(  # pylint:disable=E0602
         event.chat_id,
         required_file_name,
-        caption="Time: Powered by @UniBorg",
+        caption="",
         # Courtesy: @ManueI15
         reply_to=reply_msg_id
     )
@@ -48,7 +48,7 @@ async def _(event):
     await event.delete()
 
 
-@borg.on(admin_cmd(pattern="time (.*)"))  # pylint:disable=E0602
+@borg.on(admin_cmd(pattern="gtime (.*)"))  # pylint:disable=E0602
 async def _(event):
     if event.fwd_from:
         return

@@ -7,7 +7,7 @@ from telethon.tl.types import User, Chat, Channel
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd(pattern="count"))
+@borg.on(admin_cmd(pattern="conta"))
 async def _(event):
     if event.fwd_from:
         return
@@ -17,7 +17,7 @@ async def _(event):
     c = 0 # number of super groups
     bc = 0 # number of channels
     b = 0 # number of bots
-    await event.edit("Retrieving Telegram Count(s)")
+    await event.edit("sto analizzando...")
     async for d in borg.iter_dialogs(limit=None):
         if d.is_user:
             if d.entity.bot:
@@ -35,9 +35,9 @@ async def _(event):
             logger.info(d.stringify())
     end = datetime.now()
     ms = (end - start).seconds
-    await event.edit("""Obtained in {} seconds.
-Users:\t{}
-Groups:\t{}
-Super Groups:\t{}
-Channels:\t{}
-Bots:\t{}""".format(ms, u, g, c, bc, b))
+    await event.edit("""
+👤:\t{}
+👥Gruppi:\t{}
+👩‍💻Super Gruppi:\t{}
+🗣️Canali:\t{}
+🤖Bot:\t{}""".format(ms, u, g, c, bc, b))
